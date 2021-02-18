@@ -4,22 +4,21 @@
   <div class="overlay solid-overlay"></div>
   <div class="content-wrapper">
     <div class="col-lg-10 col-lg-offset-1 rockstar-speakers-list">
-      <h3 id="organizing-team-title">Meet the Mentors</h3>
+      <h3 id="organizing-team-title">{{ site.data.devReach2019.organizingTeamTitle }}</h3>
 
       {% assign animationDelay = 0 %}
-      {% for member in site.data.angular-online2019.mentors %}
-        {% assign colWidth = 4 %}
-      {% assign memberImage = site.baseurl | append: '/img/angular-online2019-mentors/' | append: member.thumbnailUrl %}
+      {% for member in site.data.devReach2019.team %}
+      {% assign colWidth = 12 | divided_by: forloop.length %}
+      {% assign memberImage = site.baseurl | append: '/img/devReach2019-team/' | append: member.thumbnailUrl %}
       <div class="col-md-{{ colWidth }} col-xs-6 rockstar-speakers-item animated hiding"
            data-animation="fadeInUp"
            data-delay="{{ animationDelay }}">
-        <div class="lily-head" data-toggle="modal" data-target="#mentorAngularOnline-2019-{{ member.id }}">
+        <div class="lily-head" data-toggle="modal" data-target="#teamDevReach2019MemberDetail-{{ member.id }}">
           <div class="rockstar-speaker">
             <div class="flow-img img-circle rockstar-speaker-img"
                  style="background-image: url({{ memberImage }})"></div>
             <div class="name">{{ member.name }} {{ member.surname }}</div>
             <div class="sub">{{ member.company }}</div>
-            <br />
           </div>
         </div>
       </div>

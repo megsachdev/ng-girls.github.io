@@ -7,13 +7,17 @@
       <h3 id="organizing-team-title">Meet the Mentors</h3>
 
       {% assign animationDelay = 0 %}
-      {% for member in site.data.angular-online2019.mentors %}
+      {% for member in site.data.devReach2019.mentors %}
+      {% if forloop.index < 30 %}
+        {% assign colWidth = 3 %}
+      {% else %}
         {% assign colWidth = 4 %}
-      {% assign memberImage = site.baseurl | append: '/img/angular-online2019-mentors/' | append: member.thumbnailUrl %}
+      {% endif %}
+      {% assign memberImage = site.baseurl | append: '/img/devReach2019-mentors/' | append: member.thumbnailUrl %}
       <div class="col-md-{{ colWidth }} col-xs-6 rockstar-speakers-item animated hiding"
            data-animation="fadeInUp"
            data-delay="{{ animationDelay }}">
-        <div class="lily-head" data-toggle="modal" data-target="#mentorAngularOnline-2019-{{ member.id }}">
+        <div class="lily-head" data-toggle="modal" data-target="#mentorDetailNgConf2018-{{ member.id }}">
           <div class="rockstar-speaker">
             <div class="flow-img img-circle rockstar-speaker-img"
                  style="background-image: url({{ memberImage }})"></div>
